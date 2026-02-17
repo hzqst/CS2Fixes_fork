@@ -669,10 +669,10 @@ float FASTCALL Detour_CCSPlayerPawn_GetMaxSpeed(CCSPlayerPawn* pPawn)
 CConVar<bool> g_cvarPreventUsingPlayers("cs2f_prevent_using_players", FCVAR_NONE, "Whether to prevent +use from hitting players (0=can use players, 1=cannot use players)", false);
 
 bool g_bFindingUseEntity = false;
-int64 FASTCALL Detour_FindUseEntity(CCSPlayer_UseServices* pThis, float a2)
+int64 FASTCALL Detour_FindUseEntity(CCSPlayer_UseServices* pThis, float a2, float *a3)
 {
 	g_bFindingUseEntity = true;
-	int64 ent = FindUseEntity(pThis, a2);
+	int64 ent = FindUseEntity(pThis, a2, a3);
 	g_bFindingUseEntity = false;
 	return ent;
 }
